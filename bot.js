@@ -2,17 +2,19 @@ const mineflayer = require('mineflayer');
 
 function createBot() {
   const bot = mineflayer.createBot({
-    host: 'server.aternos.me',
-    username: 'email@gmail.com', // replace with actual login
+    host: 'Blarena.aternos.me:30517',
+    username: 'tracker', // replace with actual login
     version: false
   });
 
   bot.once('spawn', () => {
-    bot.chat('/login yourPassword'); // replace with your actual login password
+    bot.chat('/register 134266 134266');
+    bot.chat('/login 134266'); // replace with your actual login password
+    console.log('🔒 Bypassed LoginSecurity.');
   });
 
   bot.on('end', () => {
-    console.log('Bot disconnected, retrying in 10s...');
+    console.log('🛑 Bot disconnected, retrying in 10s...');
     setTimeout(createBot, 10000);
   });
 
